@@ -1,0 +1,44 @@
+CREATE OR REPLACE FUNCTION "public"."insert_books_data"("p_id" int8, "p_title" varchar, "p_writer" varchar, "p_isbn" varchar, "p_publisher" varchar, "p_page" int4, "p_synopsis" text, "p_dimension" varchar, "p_language" varchar, "p_date_issue" varchar, "p_quantity" int4, "p_image_path" text, "p_flag" varchar)
+  RETURNS "pg_catalog"."void" AS $BODY$
+DECLARE
+	
+BEGIN
+	
+	IF p_flag = 'INSERT' THEN
+	
+		INSERT INTO books (
+				bk_title, bk_writer, bk_isbn, bk_publisher, bk_page, bk_synopsis, bk_dimension, bk_language, bk_date_issue, bk_quantity,
+				bk_image_path, bk_created_date
+		)
+		VALUES (
+				p_title, p_writer, p_isbn, p_publisher, p_page, p_synopsis, p_dimension, p_language, p_date_issue::date, p_quantity,
+				p_image_path, CURRENT_TIMESTAMP
+		);
+		
+	ELSIF p_flag = 'UPDATE' THEN
+	
+		UPDATE books SET
+			bk_title = p_title,
+			bk_writer = p_writer,
+			bk_isbn = p_isbn,
+			bk_publisher = p_publisher,
+			bk_page = p_page,
+			bk_synopsis = p_synopsis,
+			bk_dimension = p_dimension,
+			bk_language = p_language,
+			bk_date_issue = p_date_issue::date,
+			bk_quantity = p_quantity,
+			bk_image_path = p_image_path
+		WHERE
+			bk_id = p_id;
+	
+	ELSE 
+	
+		DELETE FROM books WHERE bk_id = p_id;
+	
+	END IF;
+	
+	END
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100

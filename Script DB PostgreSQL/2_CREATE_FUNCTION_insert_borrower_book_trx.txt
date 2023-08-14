@@ -1,0 +1,25 @@
+CREATE OR REPLACE FUNCTION "public"."insert_borrower_book_trx"("p_br_id" int8, "p_bk_id" int8, "p_flag" varchar)
+  RETURNS "pg_catalog"."void" AS $BODY$
+DECLARE
+	
+BEGIN
+	
+	IF p_flag = 'INSERT' THEN
+	
+		INSERT INTO borrower_book_transaction (
+				brt_br_id, brt_bk_id, brt_created_date
+		)
+		VALUES (
+				p_br_id, p_bk_id, CURRENT_TIMESTAMP
+		);
+	
+	ELSE 
+	
+		DELETE FROM borrower_book_transaction WHERE brt_br_id = p_br_id;
+			
+	END IF;
+	
+	END
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100

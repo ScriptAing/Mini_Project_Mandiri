@@ -1,0 +1,26 @@
+CREATE OR REPLACE FUNCTION "public"."get_list_data_borrower"()
+  RETURNS TABLE("id" int8, "name" varchar, "nim" varchar, "phone_number" varchar, "address" text, "faculty" varchar, "major" varchar, "borrow_date" date, "return_date" date, "penalty_amount" numeric, "created_date" timestamp, "updated_date" timestamp) AS $BODY$
+BEGIN
+	
+	RETURN query 
+	SELECT 
+		a.br_id,
+		a.br_name,
+		a.br_nim,
+		a.br_phone_number,
+		a.br_address,
+		a.br_faculty, 
+		a.br_major,
+		a.br_borrow_date,
+		a.br_return_date,
+		a.br_penalty_amount,
+		a.br_created_date,
+		a.br_updated_date
+	FROM
+		borrower a;
+
+END
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100
+  ROWS 1000

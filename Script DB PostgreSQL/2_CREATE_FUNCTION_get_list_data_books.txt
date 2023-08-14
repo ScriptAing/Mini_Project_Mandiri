@@ -1,0 +1,15 @@
+CREATE OR REPLACE FUNCTION "public"."get_list_data_books"()
+  RETURNS TABLE("id" int8, "title" varchar, "writer" varchar, "isbn" varchar, "publisher" varchar, "page" int4, "synopsis" text, "dimension" varchar, "language" varchar, "date_issue" date, "quantity" int4, "image_path" text, "created_date" timestamp) AS $BODY$
+BEGIN
+	
+	RETURN query 
+	SELECT a.bk_id, a.bk_title, a.bk_writer, a.bk_isbn, a.bk_publisher, a.bk_page, a.bk_synopsis, a.bk_dimension, a.bk_language,
+				a.bk_date_issue::date, a.bk_quantity, a.bk_image_path, a.bk_created_date
+	FROM
+		books a;
+
+END
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100
+  ROWS 1000

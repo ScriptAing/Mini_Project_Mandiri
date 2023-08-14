@@ -1,0 +1,57 @@
+CREATE OR REPLACE FUNCTION "public"."insert_borrower_data"("p_id" int8, "p_name" varchar, "p_nim" varchar, "p_phone_number" varchar, "p_address" text, "p_faculty" varchar, "p_major" varchar, "p_borrow_date" varchar, "p_return_date" varchar, "p_penalty_amount" numeric, "p_flag" varchar)
+  RETURNS TABLE("br_id" int8) AS $BODY$
+DECLARE
+
+borrower_id bigint;
+	
+BEGIN
+	
+	IF p_flag = 'INSERT' THEN
+	
+		INSERT INTO borrower as a(
+				br_name, br_nim, br_phone_number, br_address, br_faculty, br_major, br_borrow_date, br_return_date, br_penalty_amount, 
+				br_created_date
+		)
+		VALUES (
+				p_name, p_nim, p_phone_number, p_address, p_faculty, p_major, p_borrow_date::date, p_return_date::date, p_penalty_amount,
+				CURRENT_TIMESTAMP
+		)
+		RETURNING a.br_id INTO borrower_id;
+		
+		RETURN QUERY
+		SELECT borrower_id;
+		
+		
+	ELSIF p_flag = 'UPDATE' THEN
+	
+		UPDATE borrower AS a SET
+				br_name = p_name,
+				br_nim = p_nim,
+				br_phone_number = p_phone_number,
+				br_address = p_address,
+				br_faculty = p_faculty,
+				br_major = p_major,
+				br_borrow_date = p_borrow_date::date,
+				br_return_date = p_return_date::date,
+				br_penalty_amount = p_penalty_amount,
+				br_updated_date = CURRENT_TIMESTAMP
+		WHERE
+				a.br_id = p_id;
+				
+		RETURN QUERY
+		SELECT 0::bigint;
+	
+	ELSE 
+	
+	  DELETE FROM borrower a WHERE a.br_id = p_id;
+		
+		RETURN QUERY
+		SELECT -1::bigint;
+			
+	END IF;
+	
+	END
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100
+  ROWS 1000

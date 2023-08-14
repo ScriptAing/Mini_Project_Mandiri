@@ -1,0 +1,264 @@
+{
+	"info": {
+		"_postman_id": "ce1eabfa-6d6b-416a-a731-7adbf8550fd3",
+		"name": "Library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10766212"
+	},
+	"item": [
+		{
+			"name": "API_Books",
+			"item": [
+				{
+					"name": "get List Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5205/api_books/Book/getList",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5205",
+							"path": [
+								"api_books",
+								"Book",
+								"getList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "insert Books Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"listofbooks\": [\r\n        {\r\n            \"title\": \"Great at Work\",\r\n            \"writer\": \"Morten T. Honsen\",\r\n            \"isbn\": \"9786020000000\",\r\n            \"publisher\": \"Gramedia Widiasarana Indonesia\",\r\n            \"page\": \"378\",\r\n            \"synopsis\":\"Data yang dipaparkan dalam buku ini adalah hasil dari riset corporate dan individual performance (evidence–based)selama kurang lebih 5 tahun terhadap kurang lebih 5,000 menejer dan karyawan yang mewakili 15 sektor industri dan 22 jabatan.\\r\\n\\r\\nMengapa sebagian orang memiliki performa yang lebih baik ketimbang rekan kerja lainnya? Pertanyaan sederhana yang terdengar iseng ini terus menghantui para profesional di setiap sektor pekerjaan Kini, setelah melakukan riset selama 5 tahun terhadap 5000 manajer dan pegawai, Morten T. Hansen mendapatkan jawabannya. Risetnya yang mendalam telah memunculkan Tujuh Praktik Kerja Cerdas yang dapat diaplikasikan oleh setiap orang yang berhasrat untuk memaksimalkan waktu dan performanya.\\r\\n\\r\\nPemikirannya dikuatkan kisah-kisah nyata yang membuka mata--dari seorang pebisnis wanita yang melejitkan perusahaannya justru dengan berkata \\\"tidak\\\" pada pelanggan hingga seorang kepala sekolah yang dengan cerdas menyelamatkan sekolahnya yang dianggap gagal, juga seorang koki sushi tersohor di sebuah warung kecil yang sukses memenangkan 3 Michelin Stars.\",\r\n            \"dimension\": \"15 cm x 23 cm\",\r\n            \"language\": \"Indonesia\",\r\n            \"date_issue\": \"2022-05-12\",\r\n            \"quantity\": \"10\",\r\n            \"image_path\": \"webapps/image/good_at_work.jpg\"\r\n        },\r\n        {\r\n            \"title\": \"Melangkah\",\r\n            \"writer\": \"J. S Khairen\",\r\n            \"isbn\": \"9786020523316\",\r\n            \"publisher\": \"Gramedia Widiasarana Indonesia\",\r\n            \"page\": \"368\",\r\n            \"synopsis\":\"Listrik padam di seluruh Jawa dan Bali secara misterius. Ancaman nyata kekuatan baru yang hendak menaklukkan Nusantara. Saat yang sama, empat sahabat mendarat di Sumba, hanya untuk mendapati nasib ratusan juta manusia ada di tangan mereka! Empat mahasiswa ekonomi ini, harus bertarung melawan pasukan berkuda yang bisa melontarkan listrik! Semua dipersulit oleh seorang buronan tingkat tinggi bertopeng pahlawan yang punya rencana mengerikan. Ternyata pesan arwah nenek moyang itu benar-benar terwujud. “Akan datang kegelapan yang berderap, bersama ribuan kuda raksasa di kala malam. Mereka bangun setelah sekian lama, untuk menghancurkan Nusantara. Seorang lelaki dan seorang perempuan ditakdirkan membaurkan air di lautan dan api di pegunungan. Menyatukan tanah yang menghujam, dan udara yang terhampar.”Kisah tentang persahabatan, tentang jurang ego anak dan orangtua, tentang menyeimbangkan logika dan perasaan. Juga tentang melangkah menuju masa depan. Bahwa, apa pun yang menjadi luka masa lalu, biarlah mengering bersama waktu.\",\r\n            \"dimension\": \"13,5 cm x 20 cm\",\r\n            \"language\": \"Indonesia\",\r\n            \"date_issue\": \"2020-03-22\",\r\n            \"quantity\": \"17\",\r\n            \"image_path\": \"webapps/image/melangkah.jpg\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5205/api_books/Book/insert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5205",
+							"path": [
+								"api_books",
+								"Book",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Books Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"listofbooks\": [\r\n        {\r\n            \"id\" : \"1\", //diisi id buku\r\n            \"title\": \"Great at Work\",\r\n            \"writer\": \"Morten T. Honsen\",\r\n            \"isbn\": \"9786020000000\",\r\n            \"publisher\": \"Gramedia Widiasarana Indonesia\",\r\n            \"page\": \"378\",\r\n            \"synopsis\":\"Data yang dipaparkan dalam buku ini adalah hasil dari riset corporate dan individual performance (evidence–based)selama kurang lebih 5 tahun terhadap kurang lebih 5,000 menejer dan karyawan yang mewakili 15 sektor industri dan 22 jabatan.\\r\\n\\r\\nMengapa sebagian orang memiliki performa yang lebih baik ketimbang rekan kerja lainnya? Pertanyaan sederhana yang terdengar iseng ini terus menghantui para profesional di setiap sektor pekerjaan Kini, setelah melakukan riset selama 5 tahun terhadap 5000 manajer dan pegawai, Morten T. Hansen mendapatkan jawabannya. Risetnya yang mendalam telah memunculkan Tujuh Praktik Kerja Cerdas yang dapat diaplikasikan oleh setiap orang yang berhasrat untuk memaksimalkan waktu dan performanya.\\r\\n\\r\\nPemikirannya dikuatkan kisah-kisah nyata yang membuka mata--dari seorang pebisnis wanita yang melejitkan perusahaannya justru dengan berkata \\\"tidak\\\" pada pelanggan hingga seorang kepala sekolah yang dengan cerdas menyelamatkan sekolahnya yang dianggap gagal, juga seorang koki sushi tersohor di sebuah warung kecil yang sukses memenangkan 3 Michelin Stars.\",\r\n            \"dimension\": \"15 cm x 23 cm\",\r\n            \"language\": \"English\",\r\n            \"date_issue\": \"2022-05-12\",\r\n            \"quantity\": \"10\",\r\n            \"image_path\": \"webapps/image/good_at_work.jpg\"\r\n        },\r\n        {\r\n            \"id\" : \"2\", //diisi id buku\r\n            \"title\": \"Melangkah\",\r\n            \"writer\": \"J. S Khairen\",\r\n            \"isbn\": \"9786020523316\",\r\n            \"publisher\": \"Gramedia Widiasarana Indonesia\",\r\n            \"page\": \"368\",\r\n            \"synopsis\":\"Listrik padam di seluruh Jawa dan Bali secara misterius. Ancaman nyata kekuatan baru yang hendak menaklukkan Nusantara. Saat yang sama, empat sahabat mendarat di Sumba, hanya untuk mendapati nasib ratusan juta manusia ada di tangan mereka! Empat mahasiswa ekonomi ini, harus bertarung melawan pasukan berkuda yang bisa melontarkan listrik! Semua dipersulit oleh seorang buronan tingkat tinggi bertopeng pahlawan yang punya rencana mengerikan. Ternyata pesan arwah nenek moyang itu benar-benar terwujud. “Akan datang kegelapan yang berderap, bersama ribuan kuda raksasa di kala malam. Mereka bangun setelah sekian lama, untuk menghancurkan Nusantara. Seorang lelaki dan seorang perempuan ditakdirkan membaurkan air di lautan dan api di pegunungan. Menyatukan tanah yang menghujam, dan udara yang terhampar.”Kisah tentang persahabatan, tentang jurang ego anak dan orangtua, tentang menyeimbangkan logika dan perasaan. Juga tentang melangkah menuju masa depan. Bahwa, apa pun yang menjadi luka masa lalu, biarlah mengering bersama waktu.\",\r\n            \"dimension\": \"13,5 cm x 20 cm\",\r\n            \"language\": \"Indonesia\",\r\n            \"date_issue\": \"2020-03-22\",\r\n            \"quantity\": \"10\",\r\n            \"image_path\": \"webapps/image/melangkah.jpg\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5205/api_books/Book/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5205",
+							"path": [
+								"api_books",
+								"Book",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Books Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"book_id\": [1,2] //diisi id buku\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5205/api_books/Book/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5205",
+							"path": [
+								"api_books",
+								"Book",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API_Borrower",
+			"item": [
+				{
+					"name": "get List Borrower",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5002/api_borrower/Borrower/getList",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"api_borrower",
+								"Borrower",
+								"getList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Detail Borrower",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5002/api_borrower/Borrower/getDetail/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"api_borrower",
+								"Borrower",
+								"getDetail",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "insert Borrower Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jajang Nurjaman\",\r\n    \"nim\": \"1510631170001\",\r\n    \"phone_number\": \"081285730001\",\r\n    \"address\": \"Jl. Duren RT 01/05 Desa Duren Kecamatan Klari Kabupaten Karawang\",\r\n    \"faculty\": \"Ilmu Komputer\",\r\n    \"major\": \"Teknik Informatika\",\r\n    \"borrow_date\": \"2023-08-14\",\r\n    \"return_date\": \"2023-08-19\",\r\n    \"listofbooks\": [1,2] //diisi id buku\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5002/api_borrower/Borrower/insert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"api_borrower",
+								"Borrower",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Borrower Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"1\", //diisi id peminjam\r\n    \"name\": \"Jajang Nurjaman\",\r\n    \"nim\": \"1510631170001\",\r\n    \"phone_number\": \"081285730222\",\r\n    \"address\": \"Jl. Duren RT 01/05 Desa Duren Kecamatan Klari Kabupaten Karawang\",\r\n    \"faculty\": \"Ilmu Komputer\",\r\n    \"major\": \"Teknik Informatika\",\r\n    \"borrow_date\": \"2023-08-14\",\r\n    \"return_date\": \"2023-08-19\",\r\n    \"listofbooks\": [1,2]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5002/api_borrower/Borrower/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"api_borrower",
+								"Borrower",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Borrower Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\" //diisi id peminjam\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5002/api_borrower/Borrower/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"api_borrower",
+								"Borrower",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,23 @@
+CREATE OR REPLACE FUNCTION "public"."get_detail_borrower"("p_borrower_id" int8)
+  RETURNS TABLE("id" int8, "name" varchar, "nim" varchar, "phone_number" varchar, "address" text, "faculty" varchar, "major" varchar, "borrow_date" date, "return_date" date, "penalty_amount" numeric, "created_date" timestamp, "updated_date" timestamp, "title" varchar, "writer" varchar, "isbn" varchar, "publisher" varchar, "page" int4, "synopsis" text, "dimension" varchar, "language" varchar, "date_issue" date, "image_path" text) AS $BODY$
+BEGIN
+	
+	RETURN query 
+	SELECT 
+		a.br_id, a.br_name, a.br_nim, a.br_phone_number, a.br_address, a.br_faculty, a.br_major, a.br_borrow_date, a.br_return_date,
+		a.br_penalty_amount, a.br_created_date,	a.br_updated_date, c.bk_title, c.bk_writer, c.bk_isbn, c.bk_publisher, c.bk_page, c.bk_synopsis, c.bk_dimension, c.bk_language,
+		c.bk_date_issue::date, c.bk_image_path
+	FROM
+		borrower a
+	LEFT JOIN 
+		borrower_book_transaction b ON a.br_id = b.brt_br_id
+	LEFT JOIN
+		books c ON b.brt_bk_id = c.bk_id
+	WHERE 
+		a.br_id = p_borrower_id;
+
+END
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100
+  ROWS 1000
